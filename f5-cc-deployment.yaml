@@ -113,7 +113,7 @@ spec:
         - --pool-member-type
         - "cluster"
         - --agent
-        - as3
+        - "as3"
       volumes:
       - name: bigip-creds
         secret:
