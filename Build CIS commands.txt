@@ -1,0 +1,9 @@
+kubectl create serviceaccount bigip-ctlr -n kube-system
+kubectl create -f f5-k8s-sample-rbac.yaml
+kubectl create secret generic bigip-login --namespace kube-system --from-literal=username=USERNAME --from-literal=password=PASSWORD
+kubectl create -f f5-cc-deployment.yaml
+kubectl get po -n kube-system  | grep bigip
+
+ 
+
+kubectl logs -f k8s-bigip-ctlr-deployment-744b6d54f7-vqlzr -n kube-system
