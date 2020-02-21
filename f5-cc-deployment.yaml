@@ -33,7 +33,7 @@ spec:
             "--node-poll-interval=5",
             "--bigip-username=$(BIGIP_USERNAME)",
             "--bigip-password=$(BIGIP_PASSWORD)",
-            "--bigip-url=https://10.0.1.4",
+            "--bigip-url=10.0.1.4",
             "--bigip-partition=buuk8s",
             # The Controller can use local DNS to resolve hostnames;
             # defaults to LOOKUP; can be replaced with custom DNS server IP
