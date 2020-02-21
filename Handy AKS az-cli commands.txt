@@ -1,0 +1,65 @@
+Handy AKS az-cli commands
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+#Create a container registry
+az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
+
+#Login to registry
+az acr login --name <acrName>
+
+#Get ACR login address
+az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
+
+#Tag an image
+docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
+
+#Push image to registry
+docker push <acrLoginServer>/azure-vote-front:v1
+
+#List image in registry
+az acr repository list --name <acrName> --output table
+
+#Show tags for image
+az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
+
+#Delete an image
+az acr repository delete -n MyRegistry --image hello-world:latest
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+#Create an AKS cluster
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --node-count 2 \
+    --generate-ssh-keys \
+    --attach-acr <acrName>
+
+#Connect to cluster via cli
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster    
+
+#Get version of AKS cluster
+az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion --output table
+
+#Scale AKS nodes
+az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
+
+#Check for AKS cluster version updates
+az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
+
+#Execute updates
+az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.14.6
+
+#Validate updates
+az aks show --resource-group myResourceGroup --name myAKSCluster --output table
+
+#Delete AKS cluster
+az group delete --name myResourceGroup --yes --no-wait
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+#Scale AKS deployment
+kubectl scale --replicas=5 deployment/<nameofimage>
+
+#Update deployment
+kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:v2
+
+
