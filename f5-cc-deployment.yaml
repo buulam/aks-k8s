@@ -107,7 +107,7 @@ spec:
         - --bigip-partition
         - "buu-k8s"
         - --bigip-url
-        - "10.0.1.4"
+        - "https://10.0.1.4"
         - --insecure
         - "true"
         - --pool-member-type
