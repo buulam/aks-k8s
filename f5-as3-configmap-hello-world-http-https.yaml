@@ -21,9 +21,9 @@ data:
                 "A1": {
                     "class": "Application",
                     "template": "generic",
-                    "a1_80_vs": {
+                    "buus_aks_k8s_demo": {
                         "class": "Service_HTTP",
-                        "remark": "a1",
+                        "remark": "hello world demo",
                         "virtualAddresses": [
                             "10.0.2.10"
                         ],
