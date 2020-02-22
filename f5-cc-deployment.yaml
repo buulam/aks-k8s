@@ -33,7 +33,7 @@ spec:
             "--node-poll-interval=5",
             "--bigip-username=$(BIGIP_USERNAME)",
             "--bigip-password=$(BIGIP_PASSWORD)",
-            "--bigip-url=10.0.1.4",
+            "--bigip-url=buulam.westus.cloudapp.azure.com",
             "--bigip-partition=buuk8s",
             # The Controller can use local DNS to resolve hostnames;
             # defaults to LOOKUP; can be replaced with custom DNS server IP
@@ -42,12 +42,12 @@ spec:
             "--pool-member-type=cluster",
             #"--pool-member-type=nodeport"
             # allow self-signed cert for AS3
-            "--insecure=true",
+            "--insecure=true"
             #"--flannel-name=flannel_vxlan"
             # The Controller can access Secrets by default;
             # set to "false" if you only want to use preconfigured
             # BIG-IP SSL profiles
-            "--use-secrets=true"
+            #"--use-secrets=true"
             # The Controller watches all namespaces by default.
             # To manage a single namespace, or multiple namespaces, provide a
             # single entry for each. For example:
