@@ -1,1 +1,15 @@
 # aks-k8s
+
+Requirements:
+- F5 BIG-IP deployed in Azure
+
+First, install Azure CLI
+
+From there, this should be all the commands you should need to:
+- build AKS cluster
+- deploy F5 Controller
+- create service account and RBAC
+- create secret with BIG-IP credentials
+- deployment of f5-hello-world demo container
+- create kubernetes Services definition
+- deploy configmap with AS3 declaration
