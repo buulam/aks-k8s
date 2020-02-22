@@ -14,3 +14,4 @@ From there, this should be all the commands you should need to:
 - deployment of f5-hello-world demo container
 - create kubernetes Services definition
 - deploy configmap with AS3 declaration
+-- there is two options for AS3 declarations for HTTP and one for HTTPS with and HTTP redirect
