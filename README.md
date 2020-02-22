@@ -2,6 +2,7 @@
 
 Requirements:
 - F5 BIG-IP deployed in Azure
+- Check that AS3 / schema version is up to date
 
 First, install Azure CLI
 

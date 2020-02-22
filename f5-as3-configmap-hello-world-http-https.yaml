@@ -16,7 +16,7 @@ data:
             "id": "buuk8s-super-fun-demo",
             "label": "http",
             "remark": "A1 Template",
-            "AS3": {
+            "AS3-http": {
                 "class": "Tenant",
                 "A1": {
                     "class": "Application",
