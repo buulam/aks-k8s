@@ -15,3 +15,5 @@ From there, this should be all the commands you should need to:
 - create kubernetes Services definition
 - deploy configmap with AS3 declaration
 - there is two options for AS3 declarations for HTTP and one for HTTPS with and HTTP redirect. Just change the VIP IP to whatever you have on your BIG-IP
+
+Reference: F5 Container Ingress Services - Kubernetes
